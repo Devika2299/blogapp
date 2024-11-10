@@ -1,0 +1,45 @@
+
+
+
+
+
+<div class="container mt-5" style="background-color: #343a40; padding: 20px; border-radius: 5px;">
+  <h1 class="mb-4 text-light d-flex justify-content-center align-items-center"><strong>Edit Post</strong></h1>
+  <form (ngSubmit)="updatePost()">
+    <div class="card" style="max-width: 500px; margin: auto; background-color: #212529;">
+      <div class="card-body" style="color: white;"> 
+        <div class="form-group mb-3">
+          <label for="title" class="text-light">Title</label> 
+          <input
+            type="text"
+            id="title"
+            class="form-control"
+            [(ngModel)]="postData.title"
+            name="title"
+            placeholder="Enter post title"
+            required
+          />
+        </div>
+
+        <div class="form-group mb-3">
+          <label for="content" class="text-light">Content</label> 
+          <textarea
+            id="content"
+            class="form-control"
+            rows="6"
+            [(ngModel)]="postData.content"
+            name="content"
+            placeholder="Enter post content"
+            required
+          ></textarea>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-info btn-block me-2">Edit Post</button>
+          <button type="button" class="btn btn-danger btn-block me-2" (click)="deletePost()">Delete</button>
+          <a routerLink="/home" class="btn btn-warning btn-block me-2">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

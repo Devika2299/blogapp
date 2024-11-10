@@ -1,0 +1,66 @@
+<div class="d-flex vh-100 justify-content-center align-items-center">
+  <div class="container">
+      <div class="card align-items-center" style="width:30rem;height:36rem;position:absolute;top:180px;right:650px;">
+          <div class="align-items-center col-lg-10 mx-auto mb-6" style="position:absolute;top:20px">
+              <h1 class="text-center gap-2">SignUp</h1>
+              <form class="d-flex flex-column" [formGroup]="signupForm" >
+                  <div class="mb-3">
+                      <input type="text" class="form-control" formControlName="fname"
+                          placeholder="Enter your name">
+                      <small *ngIf="fname.invalid && (fname.dirty || fname.touched)"
+                          class="block p-error text-danger">
+                          <div *ngIf="fname.errors?.['required']">Name required</div>
+                          <div *ngIf="fname.errors?.['pattern']">Enter a valid first name</div>
+                      </small>
+                  </div>
+                  <div class="mb-3">
+                      <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
+                      <small *ngIf="email.invalid && (email.dirty || email.touched)"
+                          class="block p-error text-danger">
+                          <div *ngIf="email.errors?.['required']">Email is required</div>
+                          <div *ngIf="email.errors?.['email']">Email should be valid</div>
+                      </small>
+                  </div>
+                  <div class="mb-3">
+                      <input type="number" class="form-control" formControlName="phone"
+                          placeholder="Enter phone number">
+                      <small *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+                          class="block p-error text-danger">
+                          <div *ngIf="phone.errors?.['required']">Phone number is required</div>
+                          <div *ngIf="phone.errors?.['pattern']">PhoneNo should be valid</div>
+                      </small>
+                  </div>
+                  <div class="mb-3">
+                      <input type="password" class="form-control" formControlName="password"
+                          placeholder="Enter password">
+                      <small *ngIf="password.invalid && (password.dirty || password.touched)"
+                          class="block p-error text-danger">
+                          <div *ngIf="password.errors?.['required']">Password is required</div>
+                      </small>
+                  </div>
+                  <div class="mb-3">
+                      <input type="password" class="form-control" formControlName="confirmpassword"
+                          placeholder="Confirm Password">
+                      <small *ngIf="confirmpassword.invalid && (confirmpassword.dirty || confirmpassword.touched)"
+                          class="block p-error text-danger">
+                          <div *ngIf="confirmpassword.errors?.['required']">Confirm the password</div>
+                      </small>
+                      <small
+                          *ngIf="signupForm.errors?.['passwordMismatch'] && confirmpassword.valid && password.valid"
+                          class="block p-error text-danger">
+                          Password should match
+                      </small>
+                  </div>
+                  <button type="submit" data-mdb-button-init data-mdb-ripple-init
+                      class="btn btn-danger btn-block mb-4" [disabled]="signupForm.invalid" (click)="signup()">Sign
+                      up</button>
+                  <div class="text-center">
+                      <p>Already signed up? <a [routerLink]="['/login']"
+                              routerLinkActive="router-link-active">Login</a></p>
+                  </div>
+              </form> 
+          </div>
+      </div>
+  </div>
+</div> 
+

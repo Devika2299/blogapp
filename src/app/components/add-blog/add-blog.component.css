@@ -1,0 +1,13 @@
+.card {
+    border-radius: 0.5rem; /* Optional: to give a slight roundness to the card corners */
+  }
+  
+  .form-control:focus {
+    border-color: #007bff; /* Focus color for the form control */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Light blue glow effect */
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  

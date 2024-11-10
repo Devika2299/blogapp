@@ -1,0 +1,44 @@
+
+
+
+<div class="container mt-5" style="background-color: #343a40; padding: 20px; border-radius: 5px;">
+  <h1 class="mb-4 text-center text-light">Blog Posts</h1>
+
+  <div class="mb-4 text-center">
+    <button class="btn btn-info me-2" routerLink="/add-blog">Add New Blog</button>
+    <button class="btn btn-warning me-2" [routerLink]="['/post', userId]">My Blog</button>
+    <button class="btn btn-success me-2" routerLink="/followers">USERS</button> 
+    <button class="btn btn-danger" (click)="logout()">Logout</button>
+  </div>
+
+  <div class="row g-4"> 
+    <div *ngFor="let post of posts" class="col-12 col-md-6 col-lg-4">
+      <div class="card mb-5" style="background-color: #212529; color:white; border-radius: 8px; max-height: 450px; display: flex; flex-direction: column;">
+        <div class="card-body d-flex flex-column" style="padding: 15px;">
+          <h5 class="card-title mb-3">{{ post.title }}</h5>
+
+          <div *ngIf="post.image_path" class="text-center mb-3">
+            <img [src]="'http://localhost/dbapp_apiphp/dbapp_api/' + post.image_path" alt="Uploaded Image" 
+                 class="img-fluid rounded" style="max-height: 150px; object-fit: cover; max-width: 100%;">
+          </div>
+
+          <p class="card-text mb-3 text-truncate" style="flex-grow: 1; max-height: 60px; overflow: hidden;">
+            {{ post.content }}
+          </p>
+          <p class="text-muted mb-3">Posted by User ID: {{ post.user_id }}</p>
+          <p class="text-muted mb-3">Post ID: {{ post.id }}</p> 
+
+          <!-- <div *ngIf="post.file_path" class="mb-2">
+            <a (click)="downloadFile(post.file_path)" class="btn btn-outline-light btn-sm w-100">Download File</a>
+          </div> -->
+
+          <button class="btn btn-outline-info w-100 mt-auto" [routerLink]="['/about', post.id]">Read More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+
+
+
+

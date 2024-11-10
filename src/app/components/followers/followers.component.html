@@ -1,0 +1,36 @@
+
+<div class="container mt-5" style="background-color: #343a40; padding: 20px; border-radius: 5px;">
+  <h1 class="mb-4 text-center text-light">Users</h1>
+
+
+
+  <div *ngIf="users.length > 0" class="row">
+    <div *ngFor="let user of users" class="col-md-4 mb-4">
+      <div class="card h-100 border border-dark" style="background-color: #212529;">
+        <div class="card-body">
+          <h5 class="card-title text-light">{{ user.name }}</h5>
+          <p class="card-text text-light">User ID: {{ user.id }}</p>
+
+          <button class="btn" 
+                  [ngClass]="{'btn-success': user.isFollowed, 'btn-primary': !user.isFollowed}" 
+                  (click)="toggleFollow(user)">
+            <i class="fas" [ngClass]="user.isFollowed ? 'fa-user-check' : 'fa-user-plus'"></i>
+            {{ user.isFollowed ? 'following' : 'Follow' }} 
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="users.length === 0" class="alert alert-warning text-center">
+    <strong>No users found.</strong>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <a routerLink="/home" class="btn btn-warning mt-3">Back to Home</a>
+  </div>
+</div>
+
+
+
+
